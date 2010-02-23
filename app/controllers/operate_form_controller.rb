@@ -12,15 +12,21 @@ class OperateFormController < ApplicationController
   
   def update
     if @google_form = GoogleForm.find(params[:id])
+      params.delete(:id)
       params.delete(:action)
       params.delete(:controller)
       google_form_action = params.delete(:google_form)
       result_html = @google_form.submit(google_form_action, params)
       if result_html =~ %r{<title>Thanks!<\/title>}
         render :text => "Thanks for your answers."
+      elsif result_html =~ /Moved Temporarily/
+        render :text => "Ooh, this form has been moved or disabled. How odd."
       else
-        doc = clean_up_html(result_html)
-        render :text => doc.to_html
+        if doc = clean_up_html(result_html)
+          render :text => doc.to_html
+        else
+          render :text => result_html
+        end
       end
     end
   end
@@ -37,6 +43,7 @@ class OperateFormController < ApplicationController
     doc.xpath("//*[@class='ss-form-container']").add_class('clearfix');
     
     google_form = doc.xpath("//form").first
+    return false unless google_form
     google_form_action = google_form["action"]
     google_form["action"] = submit_operate_form_url(:id => @google_form.id, :google_form => google_form_action)
     

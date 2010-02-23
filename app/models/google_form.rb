@@ -6,8 +6,14 @@ class GoogleForm < ActiveRecord::Base
   end
   
   def submit(google_form_action, params)
-    res = Net::HTTP.post_form(URI.parse(google_form_action), params)
-    res.body
+    uri = URI.parse(google_form_action)
+    
+    uri = URI.parse(google_form_action)
+    response = nil
+    req = Net::HTTP::Post.new("#{uri.path}?#{uri.query}")
+    req.form_data = params
+    response = Net::HTTP.new(uri.host).start {|h| h.request(req)}
+    response.body
   end
   
 end
