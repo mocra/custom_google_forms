@@ -17,3 +17,8 @@ Given /^I expect Google Form POST to be successful/ do
   thankyou = File.read(File.join(Rails.root, "features", "fixtures", "sample_form_thanks.html"))
   FakeWeb.register_uri(:post, "http://spreadsheets.google.com/formResponse", :body => thankyou)
 end
+
+Given /^I expect Google Form POST to have errors/ do
+  thankyou = File.read(File.join(Rails.root, "features", "fixtures", "sample_form_with_errors.html"))
+  FakeWeb.register_uri(:post, "http://spreadsheets.google.com/formResponse", :body => thankyou)
+end
