@@ -7,6 +7,7 @@ Feature: Filling in form
     Given I have a Google Form with slug "railsdev"
     And I am on "/railsdev"
     And I should see no "style" attributes
+    And I should see no "ss-legal" classes
     Then I should see no "style" elements
     Then I should see 1 "link" element
     When I fill in "Text Question" with "My Answer"

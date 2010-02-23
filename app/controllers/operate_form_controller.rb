@@ -6,6 +6,7 @@ class OperateFormController < ApplicationController
       
       doc = Nokogiri::HTML(form_html)
       doc.xpath("//*[@style]").remove_attr('style')
+      doc.xpath("//*[@class='ss-legal']").each { |n| n.unlink }
       doc.xpath("//link").each { |n| n.unlink }
       doc.xpath("//style").each { |n| n.unlink }
       

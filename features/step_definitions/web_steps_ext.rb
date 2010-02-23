@@ -13,3 +13,7 @@ Then /^I should see no "([^\"]*)" attributes$/ do |attribute|
   page.should_not have_xpath("//*[@#{attribute}]")
 end
 
+Given /^I should see no "([^\"]*)" classes$/ do |klass|
+  page.should_not have_xpath("//*[@class='#{klass}']")
+end
+
