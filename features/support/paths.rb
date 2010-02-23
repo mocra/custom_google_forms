@@ -12,7 +12,8 @@ module NavigationHelpers
       '/'
     when /the new forms page/
       new_google_form_path
-      
+    when /"(.*)"/
+      $1
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

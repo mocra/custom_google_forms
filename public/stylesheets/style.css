@@ -32,6 +32,9 @@ html[xmlns] .clearfix{display:block}
 * html .clearfix{height:1%}
 sup,sub{vertical-align:baseline}
 
+/* Enriching features for awesome browers. */
+@import url('enrichment.css');
+
 /* Main typographic styles */
 body{font:normal 14px/140% Helvetica,Arial,sans-serif;color:#333;background-color:#c0cacc;}
 p{margin:10px 0 20px;}

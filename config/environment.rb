@@ -11,6 +11,8 @@ Rails::Initializer.run do |config|
   config.gem 'formtastic', :version => '>= 0.9.7'
   config.gem 'will_paginate', :version => '>= 2.3.12'
   config.gem 'inherited_resources', :version => '1.0.3'
+  config.gem 'nokogiri'
+  
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.

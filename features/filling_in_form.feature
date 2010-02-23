@@ -6,6 +6,9 @@ Feature: Filling in form
   Scenario: Fill in a Google Form without errors
     Given I have a Google Form with slug "railsdev"
     And I am on "/railsdev"
+    And I should see no "style" attributes
+    Then I should see no "style" elements
+    Then I should see 1 "link" element
     When I fill in "Text Question" with "My Answer"
     And I press "Submit"
     Then I should see "Thanks for your answers."
