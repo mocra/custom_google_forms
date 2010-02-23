@@ -32,11 +32,47 @@ html[xmlns] .clearfix{display:block}
 * html .clearfix{height:1%}
 sup,sub{vertical-align:baseline}
 
-/* Enriching features for awesome browers. */
-@import url('enrichment.css');
+    /*
+     * Enrichment styles
+     * 
+     * "Progressive enhancement is a strategy for web design that emphasizes accessibility, 
+     * semantic markup, and external stylesheet and scripting technologies. Progressive 
+     * enhancement uses web technologies in a layered fashion that allows everyone to access 
+     * the basic content and functionality of a web page, using any browser or Internet 
+     * connection, while also providing those with better bandwidth or more advanced browser 
+     * software an enhanced version of the page."
+     *
+     * Via: http://en.wikipedia.org/wiki/Progressive_enhancement
+     *
+     * (c) Copyright 2010 Odin Dutton. All Rights Reserved.
+     * 
+     */
+     
+    .ss-paragraph-text textarea, .ss-form-entry input{
+      -moz-box-shadow: inset 1px 1px 3px #999;
+      -webkit-box-shadow: inset 1px 1px 3px  #999;
+    
+      -moz-border-radius:5px;
+      -webkit-border-radius:5px;
+    }
+    
+    /*.ss-leftlabel{
+      -moz-border-radius-bottomleft:5px;
+      -webkit-border-radius-bottom-left:5px;
+    }
+    
+    thead{
+      -moz-border-radius-topleft:5px;
+      -webkit-border-radius-top-left:5px;
+      -moz-border-radius-topright:5px;
+      -webkit-border-radius-top-right:5px;
+      border-collapse:separate;
+      overflow: hidden;
+    }*/
+
 
 /* Main typographic styles */
-body.ss-base-body{font:normal 14px/140% Helvetica,Arial,sans-serif;color:#333;background-color:#c0cacc;}
+body{font:normal 14px/140% Helvetica,Arial,sans-serif;color:#333;background-color:#c0cacc;}
 p{margin:10px 0 20px;}
 strong{font-weight:bold;}
 code{font-family:'Courier New',Courier,Fixed;}
@@ -45,7 +81,7 @@ acronym,abbr{border-bottom:1px dashed #999;}
 acronym{font-variant:small-caps;}
 em{font-style:italic;}
 small{font-size:0.8em;}
-h1{text-indent:-9999px;background:url('logo.png') no-repeat;width:96px;height:16px;margin-bottom:15px;}
+h1{text-indent:-9999px;background:url('/images/logo.png') no-repeat;width:96px;height:16px;margin-bottom:15px;}
 h2{font-size:30px;font-weight:bold;color:#880909;}
 
 /* Links */
@@ -53,44 +89,44 @@ a:link, a:visited, a:active{color:#000;outline:none;}
 a:hover{color:#666;}  
 
 /* Layout */
-#wrapper{width:760px;margin:0 auto;background:url('background.png') repeat-y center;padding:30px 29px;}
+.ss-form-container{width:760px;margin:0 auto;background:url('/images/background.png') repeat-y center;padding:30px 29px;}
+hr{display:none;}
 
 /*-------------------------*
  * Form style -------------*
  *-------------------------*/
 label{font-weight:bold;color:#880909;display:block;}
-.entry{float:left;margin-bottom:20px;}
-.entry input, .entry textarea{background:#c0cacc;}
+.ss-form-entry label.ss-q-help{font-weight:normal;color:#333;display:block;}
+.ss-form-entry label span.ss-required-asterisk{display:inline;}
 
-/* Text */
-.entry label span{font-weight:normal;color:#333;display:block;}
-.entry label span.inline-label{display:inline;}
-.entry input{width:358px;border:1px solid #333;height:18px;padding:5px;}
-.right{float:right;}
+
+.ss-item{float:left;margin-bottom:20px;}
+
+
+
+.ss-form-entry input{background:#c0cacc;width:358px;border:1px solid #333;height:18px;padding:5px;}
+
 
 /* Textarea */
-.entry textarea{border:1px solid #333;width:758px;height:100px;}
+.ss-paragraph-text textarea{background:#c0cacc;border:1px solid #333;width:758px;height:100px;}
 
 
 /* Highlighted */
-.entry-highlighted{background:#ecf1f3;margin:0 -20px;margin-bottom:20px;padding:10px 20px 10px 20px;
+/*.entry-highlighted{background:#ecf1f3;margin:0 -20px;margin-bottom:20px;padding:10px 20px 10px 20px;
   border-top:1px solid #a9b4b8;border-bottom:1px solid #a9b4b8;}
 .hidden{display:none;}
 .entry-highlighted label{font-weight:normal;color:#333;padding-bottom:10px;}
 .entry-highlighted label.radio-label{display:inline;margin-left:10px;font-weight:normal;color:#333;}
-
+*/
 /* Table radio buttons*/
-.ss-grid{}
+/*.ss-grid{}
 .ss-grid table{width:100%;}
 .ss-grid-wrap{margin-bottom:30px;border:1px solid #333;}
 .ss-q-radio{width:60px;}
 .ss-leftlabel{text-align:right;background:#c0cacc;padding:5px;border-right:1px solid #a9b4b8;}
 thead{background:#c0cacc;height:30px;border-bottom:1px solid #a9b4b8;}
 .ss-grid-row-even{background:#e0ecef;}
-
+*/
 
 /* Submit button */
-.submit{background:url('send-btn.png');text-indent:-9999px;border:none;width:113px;height:35px;float:right;}
-
-
-
+.ss-navigate{background:url('/images/send-btn.png');text-indent:-9999px;border:none;width:113px;height:35px;float:right;}
