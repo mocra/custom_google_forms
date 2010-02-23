@@ -1,0 +1,102 @@
+/*
+ * Stylesheet by:
+ * Odin Dutton, www.odindutton.com
+ * twe4ked studios, www.twe4ked.com
+ *
+ * Stylesheet for:
+ * Mocra job form
+ * www.mocra.com
+ *
+ * Copyright:
+ * (c) Copyright 2010 Odin Dutton. All Rights Reserved.
+ *
+ */
+
+/* Reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0}
+address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit}
+del,ins{text-decoration:none}
+li{list-style:none}
+caption,th{text-align:left}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}
+q:before,q:after{content:''}
+abbr,acronym{border:0;font-variant:normal}
+legend{color:#000}
+input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit}
+input,button,textarea,select{font-size:100%}
+.clearfix:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}
+.clearfix{display:inline-block}
+html[xmlns] .clearfix{display:block}
+* html .clearfix{height:1%}
+sup,sub{vertical-align:baseline}
+
+/* Main typographic styles */
+body{font:normal 14px/140% Helvetica,Arial,sans-serif;color:#333;background-color:#c0cacc;}
+p{margin:10px 0 20px;}
+strong{font-weight:bold;}
+code{font-family:'Courier New',Courier,Fixed;}
+acronym,abbr,span.caps{cursor:help;}
+acronym,abbr{border-bottom:1px dashed #999;}
+acronym{font-variant:small-caps;}
+em{font-style:italic;}
+small{font-size:0.8em;}
+h1{text-indent:-9999px;background:url('logo.png') no-repeat;width:96px;height:16px;margin-bottom:15px;}
+h2{font-size:30px;font-weight:bold;color:#880909;}
+
+/* Links */
+a:link, a:visited, a:active{color:#000;outline:none;}
+a:hover{color:#666;}  
+
+/* Layout */
+#wrapper{width:760px;margin:0 auto;background:url('background.png') repeat-y center;padding:30px 29px;}
+
+
+
+
+
+
+
+
+
+
+/*-------------------------*
+ * Form style -------------*
+ *-------------------------*/
+label{font-weight:bold;color:#880909;display:block;}
+.entry{float:left;margin-bottom:20px;}
+.entry input, .entry textarea{background:#c0cacc;}
+
+/* Text */
+.entry label span{font-weight:normal;color:#333;display:block;}
+.entry label span.inline-label{display:inline;}
+.entry input{width:358px;border:1px solid #333;height:18px;padding:5px;}
+.right{float:right;}
+
+/* Textarea */
+.entry textarea{border:1px solid #333;width:758px;height:100px;}
+
+
+/* Highlighted */
+.entry-highlighted{background:#ecf1f3;margin:0 -20px;margin-bottom:20px;padding:10px 20px 10px 20px;
+  border-top:1px solid #a9b4b8;border-bottom:1px solid #a9b4b8;}
+.hidden{display:none;}
+.entry-highlighted label{font-weight:normal;color:#333;padding-bottom:10px;}
+.entry-highlighted label.radio-label{display:inline;margin-left:10px;font-weight:normal;color:#333;}
+
+/* Table radio buttons*/
+.ss-grid{}
+.ss-grid table{width:100%;}
+.ss-grid-wrap{margin-bottom:30px;border:1px solid #333;}
+.ss-q-radio{width:60px;}
+.ss-leftlabel{text-align:right;background:#c0cacc;padding:5px;border-right:1px solid #a9b4b8;}
+thead{background:#c0cacc;height:30px;border-bottom:1px solid #a9b4b8;}
+.ss-grid-row-even{background:#e0ecef;}
+
+
+/* Submit button */
+.submit{background:url('send-btn.png');text-indent:-9999px;border:none;width:113px;height:35px;float:right;}
+
+
+
