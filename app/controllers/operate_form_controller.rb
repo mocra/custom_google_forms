@@ -40,7 +40,7 @@ class OperateFormController < ApplicationController
     doc.xpath("//style").each { |n| n.unlink }
 
     # add 'clearfix' to wrap
-    doc.xpath("//*[@class='ss-form-container']").add_class('clearfix');
+    # doc.xpath("//*[@class='ss-form-container']").add_class('clearfix');
     
     google_form = doc.xpath("//form").first
     return false unless google_form
