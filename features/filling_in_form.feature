@@ -5,6 +5,7 @@ Feature: Filling in form
 
   Scenario: Fill in a Google Form without errors
     Given I have a Google Form with slug "railsdev"
+    And I expect Google Form POST to be successful
     And I am on "/railsdev"
     And I should see no "style" attributes
     And I should see no "ss-legal" classes

@@ -13,6 +13,10 @@ class OperateFormController < ApplicationController
       # add 'clearfix' to wrap
       doc.xpath("//*[@class='ss-form-container']").add_class('clearfix');
       
+      google_form = doc.xpath("//form").first
+      google_form_action = google_form["action"]
+      google_form["action"] = submit_operate_form_url(:id => @google_form.id, :google_form => google_form_action)
+      
       css_node = doc.create_element('link')
       css_node["href"] = "/stylesheets/style.css"
       css_node["rel"] = "stylesheet"
@@ -23,5 +27,18 @@ class OperateFormController < ApplicationController
       redirect_to 'http://mocra.com'
     end
   end
-
+  
+  def update
+    if @google_form = GoogleForm.find(params[:id])
+      params.delete(:action)
+      params.delete(:controller)
+      google_form_action = params.delete(:google_form)
+      result_html = @google_form.submit(google_form_action, params)
+      if result_html =~ %r{<title>Thanks!<\/title>}
+        render :text => "Thanks for your answers."
+      else
+        show
+      end
+    end
+  end
 end
