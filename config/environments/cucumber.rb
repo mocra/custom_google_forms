@@ -1,9 +1,9 @@
-# Settings specified here will take precedence over those in config/environment.rb
+# Edit at your own peril - it's recommended to regenerate this file
+# in the future when you upgrade to a newer version of Cucumber.
 
-# The test environment is used exclusively to run your application's
-# test suite.  You never need to work with it otherwise.  Remember that
-# your test database is "scratch space" for the test suite and is wiped
-# and recreated between test runs.  Don't rely on the data there!
+# IMPORTANT: Setting config.cache_classes to false is known to
+# break Cucumber's use_transactional_fixtures method.
+# For more information see https://rspec.lighthouseapp.com/projects/16211/tickets/165
 config.cache_classes = true
 
 # Log error messages when you accidentally call methods on nil.
@@ -12,7 +12,6 @@ config.whiny_nils = true
 # Show full error reports and disable caching
 config.action_controller.consider_all_requests_local = true
 config.action_controller.perform_caching             = false
-config.action_view.cache_template_loading            = true
 
 # Disable request forgery protection in test environment
 config.action_controller.allow_forgery_protection    = false
@@ -22,10 +21,8 @@ config.action_controller.allow_forgery_protection    = false
 # ActionMailer::Base.deliveries array.
 config.action_mailer.delivery_method = :test
 
-# Use SQL instead of Active Record's schema dumper when creating the test database.
-# This is necessary if your schema can't be completely dumped by the schema dumper,
-# like if you have constraints or database-specific column types
-# config.active_record.schema_format = :sql
+
+config.gem 'cucumber', :lib => false, :version => '>= 0.6.2'
 config.gem 'capybara', :lib => false, :version => '>= 0.3.0'
 config.gem 'rspec', :lib => false, :version => '>= 2.0.0.a7'
 config.gem 'rspec-rails', :lib => 'spec/rails', :version => '>= 1.3.2'

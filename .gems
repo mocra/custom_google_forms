@@ -1,0 +1,4 @@
+inherited_resources --version '1.0.3' 
+will_paginate --version '>= 2.3.12' 
+formtastic --version '>= 0.9.7' 
+haml --version '>= 2.0.0' 

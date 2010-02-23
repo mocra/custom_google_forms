@@ -1,0 +1,5 @@
+:address: mail.authsmtp.com
+:domain: heroku.com
+:authentication: :login
+:user_name: USERNAME
+:password: PASSWORD

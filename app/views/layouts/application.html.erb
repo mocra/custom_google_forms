@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title><%= yield(:title) || "My Google Forms" %></title>
+    <%= stylesheet_link_tag 'application', 'form' %>
+    <%= javascript_include_tag 'jquery', 'jquery.template', 'jquery.form' %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <div id="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
+</html>

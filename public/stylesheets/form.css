@@ -1,0 +1,28 @@
+/* Decent styling of formtastic forms */
+form fieldset {
+  border: 0;
+}
+
+form li {
+  list-style-type: none;
+}
+
+form li {
+  margin: 0 0 0.5em;
+  clear: both;
+}
+
+form label {
+  display: block;
+  text-align: right;
+  width: 150px;
+  float: left;
+  position: relative;
+  top: 6px;
+  padding-right: 6px;
+}
+
+form .inline-errors {
+  display: inline;
+  color: red;
+}
