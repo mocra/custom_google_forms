@@ -9,6 +9,9 @@ class OperateFormController < ApplicationController
       doc.xpath("//*[@class='ss-legal']").each { |n| n.unlink }
       doc.xpath("//link").each { |n| n.unlink }
       doc.xpath("//style").each { |n| n.unlink }
+
+      # add 'clearfix' to wrap
+      doc.xpath("//*[@class='ss-form-container']").add_class('clearfix');
       
       css_node = doc.create_element('link')
       css_node["href"] = "/stylesheets/style.css"
