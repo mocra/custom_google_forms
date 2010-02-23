@@ -12,6 +12,8 @@ class OperateFormController < ApplicationController
       
       css_node = doc.create_element('link')
       css_node["href"] = "/stylesheets/style.css"
+      css_node["rel"] = "stylesheet"
+      css_node["type"] = "text/css"
       doc.xpath("//head").first.add_child(css_node)
       render :text => doc.to_html
     else

@@ -36,7 +36,7 @@ sup,sub{vertical-align:baseline}
 @import url('enrichment.css');
 
 /* Main typographic styles */
-body{font:normal 14px/140% Helvetica,Arial,sans-serif;color:#333;background-color:#c0cacc;}
+body.ss-base-body{font:normal 14px/140% Helvetica,Arial,sans-serif;color:#333;background-color:#c0cacc;}
 p{margin:10px 0 20px;}
 strong{font-weight:bold;}
 code{font-family:'Courier New',Courier,Fixed;}
