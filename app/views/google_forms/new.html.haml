@@ -1,0 +1,7 @@
+- semantic_form_for @google_form do |f|
+  - f.inputs do
+    = f.input :slug
+    = f.input :formkey, :label => 'Form Key'
+  
+  - f.buttons do
+    = f.submit 'Create'
