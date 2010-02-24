@@ -2,7 +2,8 @@ class OperateFormController < ApplicationController
   def show
     slug = params[:slug].first
     if @google_form = GoogleForm.find_by_slug(slug)
-      form_html = @google_form.fetch_form_page
+      response = @google_form.fetch_form_page
+      form_html = response.body
       doc = clean_up_html(form_html)
       render :text => doc.to_html
     else
@@ -16,7 +17,8 @@ class OperateFormController < ApplicationController
       params.delete(:action)
       params.delete(:controller)
       google_form_action = params.delete(:google_form)
-      result_html = @google_form.submit(google_form_action, params)
+      response = @google_form.submit(google_form_action, params)
+      result_html = response.body
       if result_html =~ %r{<title>Thanks!<\/title>}
         render :text => "Thanks for your answers."
       elsif result_html =~ /Moved Temporarily/
@@ -39,9 +41,6 @@ class OperateFormController < ApplicationController
     doc.xpath("//link").each { |n| n.unlink }
     doc.xpath("//style").each { |n| n.unlink }
 
-    # add 'clearfix' to wrap
-    # doc.xpath("//*[@class='ss-form-container']").add_class('clearfix');
-    
     google_form = doc.xpath("//form").first
     return false unless google_form
     google_form_action = google_form["action"]

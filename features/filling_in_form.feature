@@ -20,10 +20,6 @@ Feature: Filling in form
     Given I have a Google Form with slug "railsdev"
     And I expect Google Form POST to have errors
     And I am on "/railsdev"
-    And I should see no "style" attributes
-    And I should see no "ss-legal" classes
-    Then I should see no "style" elements
-    Then I should see 1 "link" element
     And I press "Submit"
     Then I should not see "Thanks for your answers."
     And I should see "Looks like you have a question or two that still needs to be filled out."

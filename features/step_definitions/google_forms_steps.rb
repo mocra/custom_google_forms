@@ -1,5 +1,6 @@
 Given /^I have a Google Form with slug "([^\"]*)"$/ do |slug|
   steps <<-CUCUMBER
+    Given I expect Google Form "dFRUNHpLZmZHbVRrdlpMRnlJclBLc0E6MA" to be fetched
     Given I am on the new forms page
     When I fill in "Slug" with "#{slug}"
     And I fill in "Form Key" with "dFRUNHpLZmZHbVRrdlpMRnlJclBLc0E6MA"
@@ -7,11 +8,16 @@ Given /^I have a Google Form with slug "([^\"]*)"$/ do |slug|
     Then I should see "You can view the published form here:"
   CUCUMBER
   
-  sample_form = File.read(File.join(Rails.root, "features", "fixtures", "sample_form.html"))
-  
-  FakeWeb.register_uri(:get, "http://spreadsheets.google.com/viewform?formkey=dFRUNHpLZmZHbVRrdlpMRnlJclBLc0E6MA", :body => sample_form)
 end
 
+Given /^I expect Google Form "([^\"]*)" to be fetched$/ do |formkey|
+  sample_form = File.read(File.join(Rails.root, "features", "fixtures", "sample_form.html"))
+  FakeWeb.register_uri(:get, "http://spreadsheets.google.com/viewform?formkey=#{formkey}", :body => sample_form)
+end
+
+Given /^I expect Google Form "([^\"]*)" to be invalid$/ do |formkey|
+  FakeWeb.register_uri(:get, "http://spreadsheets.google.com/viewform?formkey=#{formkey}", :body => "Go away!", :status => [404, "Not Found"])
+end
 
 Given /^I expect Google Form POST to be successful/ do
   thankyou = File.read(File.join(Rails.root, "features", "fixtures", "sample_form_thanks.html"))

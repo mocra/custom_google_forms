@@ -64,7 +64,7 @@ label{font-weight:bold;color:#880909;display:block;}
 
 /*.ss-text{float:left;}*/
 
-.ss-form-entry input{background:white;height:25px;font-size:20px;padding:5px 5px 0;border:1px solid #737373;width:358px;}
+input{background:white;height:25px;font-size:20px;padding:5px 5px 0;border:1px solid #737373;width:358px;}
 
 /* Textarea */
 .ss-paragraph-text textarea{background:white;border:1px solid #333;width:758px;height:100px;}
@@ -88,8 +88,9 @@ thead{background:#c0cacc;height:30px;border-bottom:1px solid #a9b4b8;}
 
 
 /* Submit button */
-.ss-navigate input{background:url('/images/send-btn.png');text-indent:-9999px;border:none;width:113px;height:35px;float:right !important;}
+.ss-navigate input {background:url('/images/send-btn.png');text-indent:-9999px;border:none;width:113px;height:35px;float:right !important;}
+.buttons input{width:113px;height:35px;float:right !important;}
 
 
 /* Errors */
-.errorbox-bad input, .errorbox-bad textarea{border-color:red;}
+.errorbox-bad input, .errorbox-bad textarea, li.error input, li.error textarea{border-color:red;}

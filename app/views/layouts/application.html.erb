@@ -3,16 +3,20 @@
 <html>
   <head>
     <title><%= yield(:title) || "My Google Forms" %></title>
-    <%= stylesheet_link_tag 'application', 'form' %>
-    <%= javascript_include_tag 'jquery', 'jquery.template', 'jquery.form' %>
+    <%= stylesheet_link_tag 'style' %>
     <%= yield(:head) %>
   </head>
-  <body>
-    <div id="container">
+  <body class="ss-base-body" dir="ltr">
+    <div class="ss-form-container">
+      <div class="ss-form-heading">
+        <h1 class="ss-form-title">Forms</h1>
+        <p></p>
+      </div>
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
       <%= yield %>
     </div>
   </body>
+  <%= render :partial => 'layouts/google_analytics' %>
 </html>
