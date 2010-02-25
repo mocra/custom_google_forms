@@ -7,7 +7,6 @@ Given /^I have a Google Form with slug "([^\"]*)"$/ do |slug|
     And I press "Create"
     Then I should see "Your form 'Sample form for Testing' has been successfully customized."
   CUCUMBER
-  
 end
 
 Given /^I expect Google Form "([^\"]*)" to be fetched$/ do |formkey|
