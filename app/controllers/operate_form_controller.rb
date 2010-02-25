@@ -52,6 +52,10 @@ class OperateFormController < ApplicationController
     css_node["type"] = "text/css"
     doc.xpath("//head").first.add_child(css_node)
     
+    footer = doc.create_element('div')
+    footer["id"] = "footer"
+    doc.xpath("//body").first.add_child(footer)
+    
     analytics = doc.create_element('div')
     analytics.inner_html = render_to_string :partial => 'layouts/google_analytics'
     doc.xpath("//body").first.add_child(analytics)
