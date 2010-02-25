@@ -1,0 +1,9 @@
+/ Home
+#home
+  %h2 Our forms
+
+  %ul
+    - for form in @forms
+      %li= link_to form.title, "/#{form.slug}"
+
+

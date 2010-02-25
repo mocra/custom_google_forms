@@ -1,4 +1,8 @@
 class OperateFormController < ApplicationController
+  def index
+    @forms = GoogleForm.all
+  end
+  
   def show
     slug = params[:slug].first
     if @google_form = GoogleForm.find_by_slug(slug)

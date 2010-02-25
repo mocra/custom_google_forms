@@ -4,6 +4,10 @@ class GoogleForm < ActiveRecord::Base
   before_create :clean_formkey
   before_create :validate_formkey_is_valid
   
+  def title
+    slug
+  end
+  
   def fetch_form_page
     uri = URI.parse("http://spreadsheets.google.com/viewform?formkey=#{formkey}")
     req = Net::HTTP::Get.new("#{uri.path}?#{uri.query}")
