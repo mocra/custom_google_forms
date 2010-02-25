@@ -20,7 +20,7 @@ class OperateFormController < ApplicationController
       response = @google_form.submit(google_form_action, params)
       result_html = response.body
       if result_html =~ %r{<title>Thanks!<\/title>}
-        render :text => "Thanks for your answers."
+        redirect_to '/thankyou.html'
       elsif result_html =~ /Moved Temporarily/
         render :text => "Ooh, this form has been moved or disabled. How odd."
       else
