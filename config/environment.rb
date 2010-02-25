@@ -1,4 +1,5 @@
 EXPECTED_DOMAIN = 'forms.mocra.com'
+GOOGLE_ANALYTICS = 'UA-5370510-4'
 
 # Be sure to restart your server when you modify this file
 

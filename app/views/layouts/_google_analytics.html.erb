@@ -1,4 +1,3 @@
-<% if request.domain =~ /#{EXPECTED_DOMAIN}/ -%>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ?
 "https://ssl." : "http://www.");
@@ -8,7 +7,6 @@ type='text/javascript'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
 try {
-var pageTracker = _gat._getTracker("UA-5370510-4");
+var pageTracker = _gat._getTracker("<%= GOOGLE_ANALYTICS %>");
 pageTracker._trackPageview();
 } catch(err) {}</script>
-<% end -%>
