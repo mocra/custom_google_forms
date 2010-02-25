@@ -1,8 +1,8 @@
 class GoogleForm < ActiveRecord::Base
-  validates_presence_of :title, :slug, :formkey
-  validates_uniqueness_of :title, :slug, :formkey
-  before_create :clean_formkey
-  before_create :validate_formkey_is_valid
+  before_validation :clean_formkey
+  validates_presence_of :slug, :formkey
+  validates_uniqueness_of :slug, :formkey
+  validate :validate_formkey_is_valid
   
   def fetch_form_page
     uri = URI.parse(google_form_url)
@@ -23,6 +23,11 @@ class GoogleForm < ActiveRecord::Base
     "http://spreadsheets.google.com/viewform?formkey=#{formkey}"
   end
   
+  def extract_form_title(body)
+    doc = Nokogiri::HTML(body)
+    doc.xpath("//h1[@class='ss-form-title']").first.text
+  end
+  
   def clean_formkey
     if formkey =~ /=(.*)$/
       self.formkey = $1
@@ -30,8 +35,9 @@ class GoogleForm < ActiveRecord::Base
   end
   
   def validate_formkey_is_valid
-    case fetch_form_page
+    case response = fetch_form_page
     when Net::HTTPSuccess
+      self.title = extract_form_title(response.body)
       true
     else
       errors.add(:formkey, "is not a valid Google Forms key or URL or error connecting to Google")

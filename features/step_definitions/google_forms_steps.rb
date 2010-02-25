@@ -5,7 +5,7 @@ Given /^I have a Google Form with slug "([^\"]*)"$/ do |slug|
     When I fill in "Slug" with "#{slug}"
     And I fill in "Form Key" with "dFRUNHpLZmZHbVRrdlpMRnlJclBLc0E6MA"
     And I press "Create"
-    Then I should see "You can view the published form here:"
+    Then I should see "Your form 'Sample form for Testing' has been successfully customized."
   CUCUMBER
   
 end
