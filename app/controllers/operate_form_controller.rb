@@ -47,6 +47,12 @@ class OperateFormController < ApplicationController
     google_form["action"] = submit_operate_form_url(:id => @google_form.id, :google_form => google_form_action)
     
     css_node = doc.create_element('link')
+    css_node["href"] = "/stylesheets/reset.css"
+    css_node["rel"] = "stylesheet"
+    css_node["type"] = "text/css"
+    doc.xpath("//head").first.add_child(css_node)
+    
+    css_node = doc.create_element('link')
     css_node["href"] = "/stylesheets/style.css"
     css_node["rel"] = "stylesheet"
     css_node["type"] = "text/css"
