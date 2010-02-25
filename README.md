@@ -1,16 +1,18 @@
-# Customize Google Forms
+# Customized Google Forms
 
 <img src="http://img.skitch.com/20100225-rm11rdpj6qib6ukbwdi87ewd76.preview.jpg" alt="Google Form Customized" style="float: right; width: 200px"/>
 
-Google Forms are a great, free way to collect information for anyone, stored directly into a Google Spreadsheet, and then have Google notify you each time a form is submitted (optionally). The downside is that you can only use one of their pre-packaged themes. You can't have your company logo and corporate "look".
+Google Forms are a great, free way to collect information from anyone, stored directly into a Google Spreadsheet, and then have Google notify you each time a form is submitted (optionally). The downside is that you can only use one of their pre-packaged themes. You can't have your company logo and corporate "look".
 
 Pooey to Google, I say.
 
 Want to truly customized Google Forms? Fork this repository, customize the CSS, DOM and images, and deploy to Heroku. You can then host/customize any number of Google Forms.
 
-For example, here is an original [bare Google Form](http://spreadsheets.google.com/a/mocra.com/viewform?formkey=dFo0LXQyYmlEV2dXcVJ6WjRweW9vRnc6MA) and here is a [fully customized version](http://forms.mocra.com/railsdev), including errors and thank you page.
+For example, here is an original [bare Google Form](http://spreadsheets.google.com/a/mocra.com/viewform?formkey=dFo0LXQyYmlEV2dXcVJ6WjRweW9vRnc6MA) and here is a [fully customized version](http://forms.mocra.com/railsdev), including form validation and thank you page.
 
-## How to use Google Forms
+It's fully a dynamic, thin layer on top of Google Forms. If you change your Google Form, your custom form application automatically changes.
+
+## How to use Google Forms?
 
 Perhaps read [this docco](http://docs.google.com/support/bin/answer.py?hl=en&amp;answer=87809)? Essentially if you can access Google Spreadsheets, you can create a Google Form (which automatically creates and updates a Google Spreadsheet based on the fields and form submissions).
 
@@ -20,7 +22,7 @@ It's really simple to play with and customize Google Forms:
 
     gem install github
     cd ~/Sites
-    gh clone mocra/my-google-forms yourdomain-google-forms
+    gh clone mocra/custom-google-forms yourdomain-google-forms
     cd yourdomain-google-forms
     script/server
 
@@ -65,12 +67,16 @@ If specified, Google Analytics will be included on all pages (including the cust
 
     heroku config:add EXPECTED_DOMAIN='some.yourdomain.com'
 
-If specified, 'yourdomain-my-google-forms.heroku.com/someform' automatically redirects to 'some.domain.com/someform'. 
+If specified, 'yourdomain-google-forms.heroku.com/someform' automatically redirects to 'some.domain.com/someform'. 
 
 For example, for http://forms.mocra.com we used:
 
     heroku config:add GOOGLE_ANALYTICS='UA-5370510-4'
     heroku config:add EXPECTED_DOMAIN='forms.mocra.com'
+
+# Getting Started
+
+Once deployed, go to the /google_forms/new URL and add your first form. Once it is validated and added, you can start using it using the links shown.
 
 # License
 
