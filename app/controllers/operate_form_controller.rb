@@ -7,7 +7,7 @@ class OperateFormController < ApplicationController
       doc = clean_up_html(form_html)
       render :text => doc.to_html
     else
-      redirect_to 'http://mocra.com'
+      redirect_to '/'
     end
   end
   
@@ -51,6 +51,10 @@ class OperateFormController < ApplicationController
     css_node["rel"] = "stylesheet"
     css_node["type"] = "text/css"
     doc.xpath("//head").first.add_child(css_node)
+    
+    analytics = doc.create_element('div')
+    analytics.inner_html = render_to_string :partial => 'layouts/google_analytics'
+    doc.xpath("//body").first.add_child(analytics)
     doc
   end
 end

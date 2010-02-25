@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def check_uri
     if Rails.env.production?
-      redirect_to request.protocol + "forms.mocra.com" + request.request_uri if !/^forms.mocra.com/.match(request.host)
+      redirect_to request.protocol + EXPECTED_DOMAIN + request.request_uri if !/^forms.mocra.com/.match(request.host)
     end
   end
 end
