@@ -36,7 +36,7 @@ hr{display:none;}
  * Form style -------------*
  *-------------------------*/
 .ss-form-container{width:760px;margin:0 auto;background:url('/images/background.png') repeat-y center;padding:30px 29px;}
-/*#footer{width:818px;height:20px;margin:0 auto;background:url('/images/footer.png') no-repeat center;}*/
+#footer{width:818px;height:20px;margin:0 auto;background:url('/images/footer.png') no-repeat center;}
 
 label{font-weight:bold;color:#880909;display:block;}
 .ss-form-entry label.ss-q-help{font-weight:normal;color:#333;display:block;}
