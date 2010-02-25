@@ -1,8 +1,7 @@
 class GoogleFormsController < InheritedResources::Base
-  def show
-    show! do |format|
-      @view_form_url = "/#{@google_form.slug}"
-      format.html
+  def create
+    create! do |format|
+      format.html { redirect_to google_forms_path }
     end
   end
 end

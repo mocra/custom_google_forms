@@ -1,0 +1,26 @@
+%h2 Our forms
+
+%p
+  = link_to "Add Google Form", new_google_form_path
+
+.ss-grid
+  %table
+    %thead
+      %tr
+        %th Slug
+        %th Title
+        %th Original Form
+        %th Actions
+    %tbody
+      - unless @google_forms.blank?
+        - for form in @google_forms
+          %tr
+            %td= link_to form.slug, "/#{form.slug}"
+            %td= form.title
+            %td= link_to form.formkey, form.google_form_url
+            %td
+              = link_to "Live", "/#{form.slug}"
+              = link_to "Edit", edit_google_form_path(form)
+      - else
+        %tr
+          %td{:colspan => 4} No forms yet.

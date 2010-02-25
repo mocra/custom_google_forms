@@ -12,6 +12,8 @@ module NavigationHelpers
       '/'
     when /the new forms page/
       new_google_form_path
+    when /the forms list page/
+      google_forms_path
     when /"(.*)"/
       $1
     # Add more mappings here.

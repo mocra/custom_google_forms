@@ -7,6 +7,7 @@ Feature: Add new google forms
     Given I expect Google Form "dFRUNHpLZmZHbVRrdlpMRnlJclBLc0E6MA" to be fetched
     And I am on the new forms page
     When I fill in "Slug" with "railsdev"
+    And I fill in "Title" with "Apply for Rails Developer Job"
     And I fill in "Form Key" with "http://spreadsheets.google.com/viewform?formkey=dFRUNHpLZmZHbVRrdlpMRnlJclBLc0E6MA"
     And I press "Create"
     Then I should see "You can view the published form here:"
@@ -15,6 +16,7 @@ Feature: Add new google forms
     Given I expect Google Form "dFRUNHpLZmZHbVRrdlpMRnlJclBLc0E6MA" to be fetched
     And I am on the new forms page
     When I fill in "Slug" with "railsdev"
+    And I fill in "Title" with "Apply for Rails Developer Job"
     And I fill in "Form Key" with "dFRUNHpLZmZHbVRrdlpMRnlJclBLc0E6MA"
     And I press "Create"
     Then I should see "You can view the published form here:"
@@ -23,10 +25,21 @@ Feature: Add new google forms
     Given I expect Google Form "XXXX" to be invalid
     And I am on the new forms page
     When I fill in "Slug" with "railsdev"
+    And I fill in "Title" with "Apply for Rails Developer Job"
     And I fill in "Form Key" with "XXXX"
     And I press "Create"
     Then I should see "is not a valid Google Forms key or URL"
   
-  
-  
+  Scenario: List of forms
+    Given I am on the forms list page
+    Then I should see "No forms yet."
+    When I follow "Add Google Form"
+    Given I expect Google Form "dFRUNHpLZmZHbVRrdlpMRnlJclBLc0E6MA" to be fetched
+    When I fill in "Slug" with "railsdev"
+    And I fill in "Title" with "Apply for Rails Developer Job"
+    And I fill in "Form Key" with "http://spreadsheets.google.com/viewform?formkey=dFRUNHpLZmZHbVRrdlpMRnlJclBLc0E6MA"
+    And I press "Create"
+    Then I should see "Apply for Rails Developer Job"
+    Given I am on the home page
+    Then I should see "Apply for Rails Developer Job"
   
