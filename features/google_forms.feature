@@ -56,5 +56,7 @@ Feature: Add new google forms
     When I follow "Sample form for Testing"
     Then I should not see "Sample form for Testing"
     Then I should see "NEW TITLE"
-  
+    Given I am on the home page
+    Then I should not see "Sample form for Testing"
+    Then I should see "NEW TITLE"
   
