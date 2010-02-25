@@ -8,6 +8,16 @@ class GoogleForm < ActiveRecord::Base
     uri = URI.parse(google_form_url)
     req = Net::HTTP::Get.new("#{uri.path}?#{uri.query}")
     response = Net::HTTP.new(uri.host).start {|h| h.request(req)}
+    if response.is_a?(Net::HTTPSuccess)
+      self.title = extract_form_title(response.body)
+    end
+    response
+  end
+  
+  # If the title is modified, then save the GoogleForm before returning response
+  def fetch_form_page!
+    response = self.fetch_form_page
+    self.save!
     response
   end
   
@@ -35,9 +45,8 @@ class GoogleForm < ActiveRecord::Base
   end
   
   def validate_formkey_is_valid
-    case response = fetch_form_page
+    case fetch_form_page
     when Net::HTTPSuccess
-      self.title = extract_form_title(response.body)
       true
     else
       errors.add(:formkey, "is not a valid Google Forms key or URL or error connecting to Google")

@@ -6,9 +6,9 @@ class OperateFormController < ApplicationController
   def show
     slug = params[:slug].first
     if @google_form = GoogleForm.find_by_slug(slug)
-      response = @google_form.fetch_form_page
+      response  = @google_form.fetch_form_page!
       form_html = response.body
-      doc = clean_up_html(form_html)
+      doc       = clean_up_html(form_html)
       render :text => doc.to_html
     else
       redirect_to '/'

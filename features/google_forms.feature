@@ -44,3 +44,17 @@ Feature: Add new google forms
     Given I am on the home page
     Then I should see "Sample form for Testing"
   
+  Scenario: Form title is auto-updated each time form is fetched
+    Given I expect Google Form "dFRUNHpLZmZHbVRrdlpMRnlJclBLc0E6MA" to be fetched
+    And I am on the new forms page
+    When I fill in "Slug" with "railsdev"
+    And I fill in "Form Key" with "dFRUNHpLZmZHbVRrdlpMRnlJclBLc0E6MA"
+    And I press "Create"
+    Then I should see "Your form 'Sample form for Testing' has been successfully customized."
+    Given I am on the home page
+    And I expect Google Form "dFRUNHpLZmZHbVRrdlpMRnlJclBLc0E6MA" to be fetched with new title
+    When I follow "Sample form for Testing"
+    Then I should not see "Sample form for Testing"
+    Then I should see "NEW TITLE"
+  
+  

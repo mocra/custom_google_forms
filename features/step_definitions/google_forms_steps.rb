@@ -14,6 +14,11 @@ Given /^I expect Google Form "([^\"]*)" to be fetched$/ do |formkey|
   FakeWeb.register_uri(:get, "http://spreadsheets.google.com/viewform?formkey=#{formkey}", :body => sample_form)
 end
 
+Given /^I expect Google Form "([^\"]*)" to be fetched with new title$/ do |formkey|
+  sample_form = File.read(File.join(Rails.root, "features", "fixtures", "sample_form_with_new_title.html"))
+  FakeWeb.register_uri(:get, "http://spreadsheets.google.com/viewform?formkey=#{formkey}", :body => sample_form)
+end
+
 Given /^I expect Google Form "([^\"]*)" to be invalid$/ do |formkey|
   FakeWeb.register_uri(:get, "http://spreadsheets.google.com/viewform?formkey=#{formkey}", :body => "Go away!", :status => [404, "Not Found"])
 end
